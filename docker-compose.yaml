@@ -1,0 +1,12 @@
+version: '3.1'
+
+services:
+  db:
+    restart: always
+    image: postgres:10.0
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=passwd
+      - POSTGRES_DB=tabe
+    ports:
+      - 5432:5432
