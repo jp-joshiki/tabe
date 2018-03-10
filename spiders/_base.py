@@ -1,4 +1,5 @@
-from pprint import pprint
+import logging
+from pprint import pformat
 
 from requests_html import HTMLSession
 from tabe.models import db
@@ -22,8 +23,8 @@ class BaseSpider:
 
     @staticmethod
     def store(tag_ids, **data):
-        tabelog_id = data.get('tabelog_id')
         src = None
+        tabelog_id = data.get('tabelog_id')
         if tabelog_id:
             src = Restaurant.query.filter_by(tabelog_id=tabelog_id).first()
         if not src:
@@ -39,4 +40,4 @@ class BaseSpider:
             r_tag = RestaurantTag(restaurant_id=src.id, tag_id=tag_id)
             with db.auto_commit():
                 db.session.add(r_tag)
-        pprint(data)
+        logging.info(pformat(data))

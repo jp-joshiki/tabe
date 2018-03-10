@@ -18,3 +18,15 @@ class Restaurant(db.Model):
     lng = Column(Float)
 
     tags = relationship('Tag', secondary='restaurant_tag')
+
+    def to_dict(self):
+        return dict(
+            id=self.id,
+            name=self.name,
+            address=self.tabelog_address,
+            images=self.images,
+            tabelog_url=self.tabelog_url,
+            tabelog_rate=self.tabelog_rate,
+            lat=self.lat,
+            lng=self.lat,
+        )

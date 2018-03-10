@@ -21,7 +21,7 @@ $ python manage.py db upgrade
 $ python manage.py update_tags
 ```
 
-## Run spiders
+# Run spiders
 
 ```shell
 python -m spiders run
