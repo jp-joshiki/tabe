@@ -28,5 +28,5 @@ class Restaurant(db.Model):
             tabelog_url=self.tabelog_url,
             tabelog_rate=self.tabelog_rate,
             lat=self.lat,
-            lng=self.lat,
+            lng=self.lng,
         )
