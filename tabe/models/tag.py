@@ -22,6 +22,12 @@ class Tag(db.Model):
             with db.auto_commit():
                 db.session.add(tag)
 
+    def to_dict(self):
+        return dict(
+            id=self.id,
+            name_ja=self.name_ja,
+        )
+
 
 TABELOG_2017 = 1
 TABELOG_2017_HAMBURGER = 2

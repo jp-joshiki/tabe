@@ -12,7 +12,9 @@ flask-sqlalchemy = "*"
 flask-alembic = "*"
 requests-html = "*"
 "psycopg2-binary" = "*"
+gunicorn = "*"
 
 
-[dev-packages]
+[requires]
 
+python_version = "3.6"

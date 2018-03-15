@@ -17,7 +17,8 @@ class Restaurant(db.Model):
     lat = Column(Float)
     lng = Column(Float)
 
-    tags = relationship('Tag', secondary='restaurant_tag')
+    tags = relationship('Tag', secondary='restaurant_tag',
+                        backref='restaurants', lazy='joined')
 
     def to_dict(self):
         return dict(
@@ -29,4 +30,5 @@ class Restaurant(db.Model):
             tabelog_rate=self.tabelog_rate,
             lat=self.lat,
             lng=self.lng,
+            tags=self.tags,
         )

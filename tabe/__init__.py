@@ -21,8 +21,12 @@ def _inject_config(app):
     base_settings = os.path.join(app.root_path, '../conf/base_settings.py')
     app.config.from_pyfile(base_settings)
 
-    local_settings = os.path.join(app.root_path, '../local_settings.py')
-    app.config.from_pyfile(local_settings)
+    is_prod = os.environ.get('IS_HEROKU', None)
+    if is_prod:
+        app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+    else:
+        local_settings = os.path.join(app.root_path, '../local_settings.py')
+        app.config.from_pyfile(local_settings)
 
 
 def create_basic_app():

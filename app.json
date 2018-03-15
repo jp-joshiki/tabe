@@ -1,0 +1,13 @@
+{
+  "name": "tabe",
+  "description": "Awarded japanese restaurant",
+  "keywords": [
+    "flask",
+    "python",
+    "tabe"
+  ],
+  "repository": "https://github.com/jp-joshiki/tabe",
+  "addons": [
+    "heroku-postgresql"
+  ]
+}
