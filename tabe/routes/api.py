@@ -22,6 +22,6 @@ def tags():
     return jsonify(rv)
 
 
-@bp.route('/tag_grouped')
-def tag_grouped():
+@bp.route('/grouped_tags')
+def grouped_tags():
     return jsonify(Tag.grouped())
