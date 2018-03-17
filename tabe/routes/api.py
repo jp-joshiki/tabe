@@ -20,3 +20,8 @@ def restaurants():
 def tags():
     rv = Tag.query.all()
     return jsonify(rv)
+
+
+@bp.route('/tag_grouped')
+def tag_grouped():
+    return jsonify(Tag.grouped())
