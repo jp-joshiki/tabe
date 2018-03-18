@@ -35,7 +35,7 @@ ENTRIES = [
 ]
 
 
-class TabelogSpider(BaseSpider):
+class Tabelog2017Top100Spider(BaseSpider):
     def run(self):
         for entry in ENTRIES:
             self.parse_list(entry[0], [TABELOG_2017, entry[1]])
@@ -52,31 +52,4 @@ class TabelogSpider(BaseSpider):
         a = item.find('a.rstlist__target', first=True)
         url = a.attrs['href']
         url = url.split('?')[0]
-        id_ = url.split('/')[-2]
-
-        r = self.fetch(url).html
-        name = r.find('h2.display-name', first=True).text.strip()
-        rate = r.find('span.rdheader-rating__score-val-dtl', first=True)
-        rate = float(rate.text.strip())
-        address = r.find('p.rstinfo-table__address', first=True).text.strip()
-        images = r.find('p.rstdtl-top-postphoto__photo')
-        images = [x.find('a', first=True).attrs['href'] for x in images]
-        location = r.find('p.rstinfo-actions__btn',
-                          containing='印刷ページを表示',
-                          first=True) \
-            .find('a', first=True).attrs['data-print-url']
-        location = re.search('lat=(.*)&lng=(.*)&rcd', location)
-        lat = float(location.group(1))
-        lng = float(location.group(2))
-
-        data = dict(
-            name=name,
-            tabelog_id=id_,
-            tabelog_url=url,
-            tabelog_rate=rate,
-            tabelog_address=address,
-            images=images,
-            lat=lat,
-            lng=lng,
-        )
-        self.store(tags, **data)
+        self.parse_tabelog(url, tags)

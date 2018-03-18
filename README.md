@@ -26,5 +26,5 @@ $ python manage.py update_tags
 # Run spiders
 
 ```shell
-python -m spiders run
+python -m spiders
 ```
