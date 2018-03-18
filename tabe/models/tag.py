@@ -69,7 +69,7 @@ TABELOG_2018_BEST_CHEFS_CHOICE = 20
 _GROUPED = [
     {
         'id': TABELOG_2018,
-        'name_ja': 'The Tabelog Award 2018',
+        'name_ja': 'Tabelog Award 2018',
         'items': [
             {
                 'id': TABELOG_2018_GOLD,
