@@ -27,7 +27,7 @@ class Tag(db.Model):
             for item in group['items']:
                 tag = Tag.query.get(item['id'])
                 if not tag:
-                    item = Tag(id=item['id'])
+                    tag = Tag(id=item['id'])
                 tag.name_ja = group_name + ' ' + item['name_ja']
                 with db.auto_commit():
                     db.session.add(tag)
@@ -43,66 +43,112 @@ class Tag(db.Model):
         return _GROUPED
 
 
-TABELOG_2017 = 1
-TABELOG_2017_HAMBURGER = 2
-TABELOG_2017_PIZZA = 3
-TABELOG_2017_PORK_CUTLET = 4
-TABELOG_2017_CURRY = 5
-TABELOG_2017_SOBA = 6
-TABELOG_2017_UDON = 7
-TABELOG_2017_RAMEN_TOKYO = 8
-TABELOG_2017_RAMEN_EASE = 9
-TABELOG_2017_RAMEN_WEST = 10
-TABELOG_2017_SWEETS = 11
-TABELOG_2017_PAN = 12
+TABELOG_2017_TOP_100 = 1
+TABELOG_2017_TOP_100_HAMBURGER = 2
+TABELOG_2017_TOP_100_PIZZA = 3
+TABELOG_2017_TOP_100_PORK_CUTLET = 4
+TABELOG_2017_TOP_100_CURRY = 5
+TABELOG_2017_TOP_100_SOBA = 6
+TABELOG_2017_TOP_100_UDON = 7
+TABELOG_2017_TOP_100_RAMEN_TOKYO = 8
+TABELOG_2017_TOP_100_RAMEN_EASE = 9
+TABELOG_2017_TOP_100_RAMEN_WEST = 10
+TABELOG_2017_TOP_100_SWEETS = 11
+TABELOG_2017_TOP_100_PAN = 12
 
-_GROUPED = [{
-    'id': TABELOG_2017,
-    'name_ja': '食べログ 百名店 2017',
-    'items': [
-        {
-            'id': TABELOG_2017_HAMBURGER,
-            'name_ja': 'ハンバーガー',
-        },
-        {
-            'id': TABELOG_2017_PIZZA,
-            'name_ja': 'ピザ',
-        },
-        {
-            'id': TABELOG_2017_PORK_CUTLET,
-            'name_ja': 'とんかつ',
-        },
-        {
-            'id': TABELOG_2017_CURRY,
-            'name_ja': 'カレー',
-        },
-        {
-            'id': TABELOG_2017_SOBA,
-            'name_ja': 'そば',
-        },
-        {
-            'id': TABELOG_2017_UDON,
-            'name_ja': 'うどん',
-        },
-        {
-            'id': TABELOG_2017_RAMEN_TOKYO,
-            'name_ja': 'TOKYO ラーメン'
-        },
-        {
-            'id': TABELOG_2017_RAMEN_EASE,
-            'name_ja': 'EAST ラーメン'
-        },
-        {
-            'id': TABELOG_2017_RAMEN_WEST,
-            'name_ja': 'WEST ラーメン'
-        },
-        {
-            'id': TABELOG_2017_SWEETS,
-            'name_ja': 'スイーツ',
-        },
-        {
-            'id': TABELOG_2017_PAN,
-            'name_ja': 'パン',
-        },
-    ]
-}]
+TABELOG_2018 = 13
+TABELOG_2018_GOLD = 14
+TABELOG_2018_SILVER = 15
+TABELOG_2018_BRONZE = 16
+TABELOG_2018_BEST_NEW_ENTRY = 17
+TABELOG_2018_BEST_HOSPITALITY = 18
+TABELOG_2018_BEST_REGIONAL = 19
+TABELOG_2018_BEST_CHEFS_CHOICE = 20
+
+
+_GROUPED = [
+    {
+        'id': TABELOG_2018,
+        'name_ja': 'The Tabelog Award 2018',
+        'items': [
+            {
+                'id': TABELOG_2018_GOLD,
+                'name_ja': 'Gold',
+            },
+            {
+                'id': TABELOG_2018_SILVER,
+                'name_ja': 'Silver',
+            },
+            {
+                'id': TABELOG_2018_BRONZE,
+                'name_ja': 'Bronze',
+            },
+            {
+                'id': TABELOG_2018_BEST_NEW_ENTRY,
+                'name_ja': 'Best New Entry',
+            },
+            {
+                'id': TABELOG_2018_BEST_HOSPITALITY,
+                'name_ja': 'Best Hospitality',
+            },
+            {
+                'id': TABELOG_2018_BEST_REGIONAL,
+                'name_ja': 'Best Regional Restaurant',
+            },
+            {
+                'id': TABELOG_2018_BEST_CHEFS_CHOICE,
+                'name_ja': "Best Chef's choice",
+            }
+        ],
+    },
+    {
+        'id': TABELOG_2017_TOP_100,
+        'name_ja': '食べログ 百名店 2017',
+        'items': [
+            {
+                'id': TABELOG_2017_TOP_100_HAMBURGER,
+                'name_ja': 'ハンバーガー',
+            },
+            {
+                'id': TABELOG_2017_TOP_100_PIZZA,
+                'name_ja': 'ピザ',
+            },
+            {
+                'id': TABELOG_2017_TOP_100_PORK_CUTLET,
+                'name_ja': 'とんかつ',
+            },
+            {
+                'id': TABELOG_2017_TOP_100_CURRY,
+                'name_ja': 'カレー',
+            },
+            {
+                'id': TABELOG_2017_TOP_100_SOBA,
+                'name_ja': 'そば',
+            },
+            {
+                'id': TABELOG_2017_TOP_100_UDON,
+                'name_ja': 'うどん',
+            },
+            {
+                'id': TABELOG_2017_TOP_100_RAMEN_TOKYO,
+                'name_ja': 'TOKYO ラーメン'
+            },
+            {
+                'id': TABELOG_2017_TOP_100_RAMEN_EASE,
+                'name_ja': 'EAST ラーメン'
+            },
+            {
+                'id': TABELOG_2017_TOP_100_RAMEN_WEST,
+                'name_ja': 'WEST ラーメン'
+            },
+            {
+                'id': TABELOG_2017_TOP_100_SWEETS,
+                'name_ja': 'スイーツ',
+            },
+            {
+                'id': TABELOG_2017_TOP_100_PAN,
+                'name_ja': 'パン',
+            },
+        ]
+    },
+]

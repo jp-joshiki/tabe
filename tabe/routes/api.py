@@ -1,7 +1,6 @@
 from flask import Blueprint
 from flask import request, jsonify
 
-from tabe.models import db
 from tabe.models import Restaurant, Tag
 
 bp = Blueprint('api', __name__)
@@ -16,7 +15,7 @@ def with_cache(resp, timeout=3600):
 def restaurants():
     args = request.args
     tag = args.get('tag', type=int)
-    rv = Restaurant.query.options(db.joinedload(Restaurant.tags)) \
+    rv = Restaurant.query \
         .filter(Restaurant.tags.any(id=tag)).all()
     return with_cache(jsonify(rv))
 

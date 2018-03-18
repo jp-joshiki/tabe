@@ -1,17 +1,17 @@
 from ._base import BaseSpider
 from tabe.models.tag import (
-    TABELOG_2017,
-    TABELOG_2017_HAMBURGER,
-    TABELOG_2017_PIZZA,
-    TABELOG_2017_PORK_CUTLET,
-    TABELOG_2017_CURRY,
-    TABELOG_2017_SOBA,
-    TABELOG_2017_UDON,
-    TABELOG_2017_RAMEN_TOKYO,
-    TABELOG_2017_RAMEN_EASE,
-    TABELOG_2017_RAMEN_WEST,
-    TABELOG_2017_SWEETS,
-    TABELOG_2017_PAN,
+    TABELOG_2017_TOP_100,
+    TABELOG_2017_TOP_100_HAMBURGER,
+    TABELOG_2017_TOP_100_PIZZA,
+    TABELOG_2017_TOP_100_PORK_CUTLET,
+    TABELOG_2017_TOP_100_CURRY,
+    TABELOG_2017_TOP_100_SOBA,
+    TABELOG_2017_TOP_100_UDON,
+    TABELOG_2017_TOP_100_RAMEN_TOKYO,
+    TABELOG_2017_TOP_100_RAMEN_EASE,
+    TABELOG_2017_TOP_100_RAMEN_WEST,
+    TABELOG_2017_TOP_100_SWEETS,
+    TABELOG_2017_TOP_100_PAN,
 )
 
 
@@ -19,24 +19,24 @@ BASE_URL = 'https://award.tabelog.com/hyakumeiten/2017'
 
 
 ENTRIES = [
-    ('hamburger/japan', TABELOG_2017_HAMBURGER),
-    ('pizza/japan', TABELOG_2017_PIZZA),
-    ('tonkatsu/japan', TABELOG_2017_PORK_CUTLET),
-    ('curry/japan', TABELOG_2017_CURRY),
-    ('soba/japan', TABELOG_2017_SOBA),
-    ('udon/japan', TABELOG_2017_UDON),
-    ('ramen/tokyo', TABELOG_2017_RAMEN_TOKYO),
-    ('ramen/east', TABELOG_2017_RAMEN_EASE),
-    ('ramen/west', TABELOG_2017_RAMEN_WEST),
-    ('sweets/japan', TABELOG_2017_SWEETS),
-    ('pan/japan', TABELOG_2017_PAN)
+    ('hamburger/japan', TABELOG_2017_TOP_100_HAMBURGER),
+    ('pizza/japan', TABELOG_2017_TOP_100_PIZZA),
+    ('tonkatsu/japan', TABELOG_2017_TOP_100_PORK_CUTLET),
+    ('curry/japan', TABELOG_2017_TOP_100_CURRY),
+    ('soba/japan', TABELOG_2017_TOP_100_SOBA),
+    ('udon/japan', TABELOG_2017_TOP_100_UDON),
+    ('ramen/tokyo', TABELOG_2017_TOP_100_RAMEN_TOKYO),
+    ('ramen/east', TABELOG_2017_TOP_100_RAMEN_EASE),
+    ('ramen/west', TABELOG_2017_TOP_100_RAMEN_WEST),
+    ('sweets/japan', TABELOG_2017_TOP_100_SWEETS),
+    ('pan/japan', TABELOG_2017_TOP_100_PAN)
 ]
 
 
 class Tabelog2017Top100Spider(BaseSpider):
     def run(self):
         for entry in ENTRIES:
-            self.parse_list(entry[0], [TABELOG_2017, entry[1]])
+            self.parse_list(entry[0], [TABELOG_2017_TOP_100, entry[1]])
 
     def parse_list(self, path, tags):
         url = BASE_URL + '/' + path
