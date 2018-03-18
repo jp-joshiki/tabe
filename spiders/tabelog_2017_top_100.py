@@ -1,5 +1,3 @@
-import re
-
 from ._base import BaseSpider
 from tabe.models.tag import (
     TABELOG_2017,

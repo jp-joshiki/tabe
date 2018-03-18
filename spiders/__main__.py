@@ -2,7 +2,7 @@ import click
 import logging
 from tabe import create_basic_app
 from flask.cli import FlaskGroup
-from .tabelog import Tabelog2017Top100Spider
+from .tabelog_2017_top_100 import Tabelog2017Top100Spider
 
 
 def _create_app(_):
