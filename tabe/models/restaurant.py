@@ -30,5 +30,5 @@ class Restaurant(db.Model):
             tabelog_rate=self.tabelog_rate,
             lat=self.lat,
             lng=self.lng,
-            tags=self.tags,
+            tags=[x.to_dict() for x in self.tags],
         )

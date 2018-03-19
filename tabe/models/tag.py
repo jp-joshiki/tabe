@@ -72,28 +72,28 @@ MICHELIN_2018_3STAR = 24
 MICHELIN_2018_BIG_GOURMAND = 25
 
 _GROUPED = [
-    {
-        'id': MICHELIN_2018,
-        'name_ja': 'ミシュラン 2018',
-        'items': [
-            {
-                'id': MICHELIN_2018_BIG_GOURMAND,
-                'name_ja': 'ビブグルマン',
-            },
-            {
-                'id': MICHELIN_2018_1STAR,
-                'name_ja': '一つ星',
-            },
-            {
-                'id': MICHELIN_2018_2STAR,
-                'name_ja': '二つ星',
-            },
-            {
-                'id': MICHELIN_2018_3STAR,
-                'name_ja': '三つ星',
-            },
-        ],
-    },
+    # {
+    #     'id': MICHELIN_2018,
+    #     'name_ja': 'ミシュラン 2018',
+    #     'items': [
+    #         {
+    #             'id': MICHELIN_2018_BIG_GOURMAND,
+    #             'name_ja': 'ビブグルマン',
+    #         },
+    #         {
+    #             'id': MICHELIN_2018_1STAR,
+    #             'name_ja': '一つ星',
+    #         },
+    #         {
+    #             'id': MICHELIN_2018_2STAR,
+    #             'name_ja': '二つ星',
+    #         },
+    #         {
+    #             'id': MICHELIN_2018_3STAR,
+    #             'name_ja': '三つ星',
+    #         },
+    #     ],
+    # },
     {
         'id': TABELOG_2018,
         'name_ja': 'Tabelog Award 2018',
