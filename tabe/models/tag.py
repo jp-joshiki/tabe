@@ -4,6 +4,32 @@ from sqlalchemy import Integer, String
 from .base import db
 
 
+class I18n:
+    ja = None
+    en = None
+    cn = None
+
+    def __init__(self, ja, en, cn):
+        self.ja = ja
+        self.en = en
+        self.cn = cn
+
+    @staticmethod
+    def simple(data):
+        return I18n(data, data, data)
+
+    @staticmethod
+    def complex(ja, en, cn):
+        return I18n(ja, en, cn)
+
+    def to_dict(self):
+        return dict(
+            ja=self.ja,
+            en=self.en,
+            cn=self.cn,
+        )
+
+
 class RestaurantTag(db.Model):
     id = Column(Integer, primary_key=True, autoincrement=True)
     restaurant_id = Column(Integer, ForeignKey('restaurant.id'))
@@ -13,29 +39,36 @@ class RestaurantTag(db.Model):
 class Tag(db.Model):
     id = Column(Integer, primary_key=True)
     name_ja = Column(String(100))
+    name_en = Column(String(100))
+    name_cn = Column(String(100))
 
     @staticmethod
     def update():
         for group in _GROUPED:
-            group_name = group['name_ja']
+            group_name = group['name']
             group_tag = Tag.query.get(group['id'])
             if not group_tag:
                 group_tag = Tag(id=group['id'])
-            group_tag.name_ja = group_name
+            group_tag.name_ja = group_name.ja
+            group_tag.name_en = group_name.en
+            group_tag.name_cn = group_name.cn
             with db.auto_commit():
                 db.session.add(group_tag)
+
             for item in group['items']:
                 tag = Tag.query.get(item['id'])
                 if not tag:
                     tag = Tag(id=item['id'])
-                tag.name_ja = group_name + ' ' + item['name_ja']
+                tag.name_ja = group_name.ja + ' ' + item['name'].ja
+                tag.name_en = group_name.en + ' ' + item['name'].en
+                tag.name_cn = group_name.cn + ' ' + item['name'].cn
                 with db.auto_commit():
                     db.session.add(tag)
 
     def to_dict(self):
         return dict(
             id=self.id,
-            name_ja=self.name_ja,
+            name=I18n.complex(self.name_ja, self.name_en, self.name_cn),
         )
 
     @staticmethod
@@ -96,85 +129,109 @@ _GROUPED = [
     # },
     {
         'id': TABELOG_2018,
-        'name_ja': 'Tabelog Award 2018',
+        'name': I18n.simple('Tabelog Award 2018'),
         'items': [
             {
                 'id': TABELOG_2018_GOLD,
-                'name_ja': 'Gold',
+                'name': I18n.simple('Gold'),
             },
             {
                 'id': TABELOG_2018_SILVER,
-                'name_ja': 'Silver',
+                'name': I18n.simple('Silver'),
             },
             {
                 'id': TABELOG_2018_BRONZE,
-                'name_ja': 'Bronze',
+                'name': I18n.simple('Bronze'),
             },
             {
                 'id': TABELOG_2018_BEST_NEW_ENTRY,
-                'name_ja': 'Best New Entry',
+                'name': I18n.simple('Best New Entry'),
             },
             {
                 'id': TABELOG_2018_BEST_HOSPITALITY,
-                'name_ja': 'Best Hospitality',
+                'name': I18n.simple('Best Hospitality'),
             },
             {
                 'id': TABELOG_2018_BEST_REGIONAL,
-                'name_ja': 'Best Regional Restaurant',
+                'name': I18n.simple('Best Regional Restaurant'),
             },
             {
                 'id': TABELOG_2018_BEST_CHEFS_CHOICE,
-                'name_ja': "Best Chef's choice",
+                'name': I18n.simple("Best Chef's choice"),
             }
         ],
     },
     {
         'id': TABELOG_2017_TOP_100,
-        'name_ja': '食べログ 百名店 2017',
+        'name': I18n.complex(ja='食べログ 百名店 2017',
+                             en='Tabelog Top100 2017',
+                             cn='Tabelog 百名店 2017',),
         'items': [
             {
                 'id': TABELOG_2017_TOP_100_HAMBURGER,
-                'name_ja': 'ハンバーガー',
+                'name': I18n.complex(
+                    ja='ハンバーガー', en='Hamburger', cn='漢堡'
+                ),
             },
             {
                 'id': TABELOG_2017_TOP_100_PIZZA,
-                'name_ja': 'ピザ',
+                'name': I18n.complex(
+                    ja='ピザ', en='Pizza', cn='披薩',
+                ),
             },
             {
                 'id': TABELOG_2017_TOP_100_PORK_CUTLET,
-                'name_ja': 'とんかつ',
+                'name': I18n.complex(
+                    ja='とんかつ', en='Pork Cutlet', cn='炸豬排'
+                ),
             },
             {
                 'id': TABELOG_2017_TOP_100_CURRY,
-                'name_ja': 'カレー',
+                'name': I18n.complex(
+                    ja='カレー', en='Curry', cn='咖喱'
+                ),
             },
             {
                 'id': TABELOG_2017_TOP_100_SOBA,
-                'name_ja': 'そば',
+                'name': I18n.complex(
+                    ja='そば', en='Soba', cn='蕎麥麵'
+                ),
             },
             {
                 'id': TABELOG_2017_TOP_100_UDON,
-                'name_ja': 'うどん',
+                'name': I18n.complex(
+                    ja='うどん', en='Udon', cn='烏冬面'
+                ),
             },
             {
                 'id': TABELOG_2017_TOP_100_RAMEN_TOKYO,
-                'name_ja': 'TOKYO ラーメン'
+                'name': I18n.complex(
+                    ja='Tokyo ラーメン', en='Tokyo Ramen', cn='東京拉麵'
+                )
             },
             {
                 'id': TABELOG_2017_TOP_100_RAMEN_EASE,
-                'name_ja': 'EAST ラーメン'
+                'name': I18n.complex(
+                    ja='East ラーメン', en='East Ramen', cn='關東拉麵'
+                )
             },
             {
                 'id': TABELOG_2017_TOP_100_RAMEN_WEST,
-                'name_ja': 'WEST ラーメン'
+                'name': I18n.complex(
+                    ja='WEST ラーメン', en='West Ramen', cn='關西拉麵'
+                )
             },
             {
                 'id': TABELOG_2017_TOP_100_SWEETS,
-                'name_ja': 'スイーツ',
+                'name': I18n.complex(
+                    ja='スイーツ', en='Sweets', cn='甜品'
+                ),
             },
             {
                 'id': TABELOG_2017_TOP_100_PAN,
-                'name_ja': 'パン',
+                'name': I18n.complex(
+                    ja='パン', en='Pan', cn='麵包'
+                ),
             },
         ]
     },
