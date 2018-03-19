@@ -4,6 +4,7 @@ from tabe import create_basic_app
 from flask.cli import FlaskGroup
 from .tabelog_2017_top_100 import Tabelog2017Top100Spider
 from .tabelog_2018 import Tabelog2018Spider
+from .michelin_2018 import Michelin2018Spider
 
 
 def _create_app(_):
@@ -25,6 +26,11 @@ def tabelog_2017_top_100():
 @cli.command()
 def tabelog_2018():
     Tabelog2018Spider().run()
+
+
+@cli.command()
+def michelin_2018():
+    Michelin2018Spider().run()
 
 
 if __name__ == '__main__':
