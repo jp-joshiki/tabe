@@ -112,16 +112,10 @@ _GROUPED = [
                              cn='米其林2018'),
         'items': [
             {
-                'id': MICHELIN_2018_BIG_GOURMAND,
-                'name': I18n.complex(ja='ビブグルマン',
-                                     en='Big Gourmand',
-                                     cn='超值套餐'),
-            },
-            {
-                'id': MICHELIN_2018_1STAR,
-                'name': I18n.complex(ja='一つ星',
-                                     en='1 star',
-                                     cn='一星'),
+                'id': MICHELIN_2018_3STAR,
+                'name': I18n.complex(ja='三つ星',
+                                     en='2 star',
+                                     cn='三星'),
             },
             {
                 'id': MICHELIN_2018_2STAR,
@@ -130,10 +124,16 @@ _GROUPED = [
                                      cn='二星'),
             },
             {
-                'id': MICHELIN_2018_3STAR,
-                'name': I18n.complex(ja='三つ星',
-                                     en='2 star',
-                                     cn='三星'),
+                'id': MICHELIN_2018_1STAR,
+                'name': I18n.complex(ja='一つ星',
+                                     en='1 star',
+                                     cn='一星'),
+            },
+            {
+                'id': MICHELIN_2018_BIG_GOURMAND,
+                'name': I18n.complex(ja='ビブグルマン',
+                                     en='Big Gourmand',
+                                     cn='超值套餐'),
             },
         ],
     },
