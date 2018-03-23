@@ -105,28 +105,38 @@ MICHELIN_2018_3STAR = 24
 MICHELIN_2018_BIG_GOURMAND = 25
 
 _GROUPED = [
-    # {
-    #     'id': MICHELIN_2018,
-    #     'name_ja': 'ミシュラン 2018',
-    #     'items': [
-    #         {
-    #             'id': MICHELIN_2018_BIG_GOURMAND,
-    #             'name_ja': 'ビブグルマン',
-    #         },
-    #         {
-    #             'id': MICHELIN_2018_1STAR,
-    #             'name_ja': '一つ星',
-    #         },
-    #         {
-    #             'id': MICHELIN_2018_2STAR,
-    #             'name_ja': '二つ星',
-    #         },
-    #         {
-    #             'id': MICHELIN_2018_3STAR,
-    #             'name_ja': '三つ星',
-    #         },
-    #     ],
-    # },
+    {
+        'id': MICHELIN_2018,
+        'name': I18n.complex(ja='ミシュラン 2018',
+                             en='Michelin 2018',
+                             cn='米其林2018'),
+        'items': [
+            {
+                'id': MICHELIN_2018_BIG_GOURMAND,
+                'name': I18n.complex(ja='ビブグルマン',
+                                     en='Big Gourmand',
+                                     cn='超值套餐'),
+            },
+            {
+                'id': MICHELIN_2018_1STAR,
+                'name': I18n.complex(ja='一つ星',
+                                     en='1 star',
+                                     cn='一星'),
+            },
+            {
+                'id': MICHELIN_2018_2STAR,
+                'name': I18n.complex(ja='二つ星',
+                                     en='2 star',
+                                     cn='二星'),
+            },
+            {
+                'id': MICHELIN_2018_3STAR,
+                'name': I18n.complex(ja='三つ星',
+                                     en='2 star',
+                                     cn='三星'),
+            },
+        ],
+    },
     {
         'id': TABELOG_2018,
         'name': I18n.simple('Tabelog Award 2018'),
@@ -165,7 +175,7 @@ _GROUPED = [
         'id': TABELOG_2017_TOP_100,
         'name': I18n.complex(ja='食べログ 百名店 2017',
                              en='Tabelog Top100 2017',
-                             cn='Tabelog 百名店 2017',),
+                             cn='Tabelog 百名店 2017', ),
         'items': [
             {
                 'id': TABELOG_2017_TOP_100_HAMBURGER,

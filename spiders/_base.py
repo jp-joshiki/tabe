@@ -48,7 +48,10 @@ class BaseSpider:
         r = self.fetch(url).html
         name = r.find('h2.display-name', first=True).text.strip()
         rate = r.find('span.rdheader-rating__score-val-dtl', first=True)
-        rate = float(rate.text.strip())
+        try:
+            rate = float(rate.text.strip())
+        except ValueError:
+            rate = None
         address = r.find('p.rstinfo-table__address', first=True).text.strip()
         images = r.find('p.rstdtl-top-postphoto__photo')
         images = [x.find('a', first=True).attrs['href'] for x in images]
