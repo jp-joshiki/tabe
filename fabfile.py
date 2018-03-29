@@ -26,7 +26,9 @@ def publish():
     tags = Tag.query.all()
     for tag in tags:
         restaurants = Restaurant.query \
-            .filter(Restaurant.tags.any(id=tag.id)).all()
+            .filter(Restaurant.tags.any(id=tag.id)) \
+            .filter(Restaurant.lat.isnot(None)) \
+            .filter(Restaurant.lng.isnot(None)).all()
         with open(f'./dist/tag_restaurants/{tag.id}.json', 'w') as f:
             json.dump(restaurants, f)
     put('./dist/*', '/var/www/tabe')

@@ -60,11 +60,13 @@ class BaseSpider:
                               containing='印刷ページを表示',
                               first=True) \
                 .find('a', first=True).attrs['data-print-url']
+            location = re.search('lat=(.*)&lng=(.*)&rcd', location)
+            lat = float(location.group(1))
+            lng = float(location.group(2))
         except AttributeError:
-            return
-        location = re.search('lat=(.*)&lng=(.*)&rcd', location)
-        lat = float(location.group(1))
-        lng = float(location.group(2))
+            lat = None
+            lng = None
+        # p = r.find('p.rdheader-budget__icon--dinner > span > a').text
 
         data = dict(
             name=name,

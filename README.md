@@ -20,7 +20,7 @@ $ docker-compose up
 $ pipenv install
 $ pipenv shell
 $ python manage.py db upgrade
-$ python manage.py update_tags
+$ python manage.py update_db
 ```
 
 # Run spiders

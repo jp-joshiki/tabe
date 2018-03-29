@@ -15,10 +15,11 @@ def cli():
     pass
 
 
-@cli.command(help='Update db data')
-def update_tags():
-    from tabe.models import Tag
+@cli.command(help='Update db')
+def update_db():
+    from tabe.models import Tag, Offday
     Tag.update()
+    Offday.update()
 
 
 if __name__ == '__main__':

@@ -1,37 +1,12 @@
 from sqlalchemy import Column, ForeignKey
 from sqlalchemy import Integer, String
 
-from .base import db
-
-
-class I18n:
-    ja = None
-    en = None
-    cn = None
-
-    def __init__(self, ja, en, cn):
-        self.ja = ja
-        self.en = en
-        self.cn = cn
-
-    @staticmethod
-    def simple(data):
-        return I18n(data, data, data)
-
-    @staticmethod
-    def complex(ja, en, cn):
-        return I18n(ja, en, cn)
-
-    def to_dict(self):
-        return dict(
-            ja=self.ja,
-            en=self.en,
-            cn=self.cn,
-        )
+from ._utils import I18n
+from . import db
 
 
 class RestaurantTag(db.Model):
-    id = Column(Integer, primary_key=True, autoincrement=True)
+    id = Column(Integer, primary_key=True)
     restaurant_id = Column(Integer, ForeignKey('restaurant.id'))
     tag_id = Column(Integer, ForeignKey('tag.id'))
 
