@@ -906,7 +906,7 @@ GNAVI_TO_TABE = {
     '0516031503': 'https://tabelog.com/osaka/A2701/A270202/27007820/',
     '0516031601': 'https://tabelog.com/osaka/A2701/A270103/27000533/',
     '0516031603': 'https://tabelog.com/osaka/A2701/A270201/27001436/',
-    '0516031604': 'https://tabelog.com/kanagawa/A1404/A140403/14011770/',
+    '0516031604': 'https://tabelog.com/osaka/A2701/A270103/27018361/',
     '0516031701': 'https://tabelog.com/osaka/A2701/A270404/27003447/',
     '0516031702': 'https://tabelog.com/osaka/A2701/A270203/27008416/',
     '0516031703': 'https://tabelog.com/osaka/A2701/A270203/27002750/',
