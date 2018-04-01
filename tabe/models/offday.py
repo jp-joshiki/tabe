@@ -21,7 +21,7 @@ class Offday(db.Model):
     @staticmethod
     def update():
         locale.setlocale(locale.LC_ALL, 'ja_JP')
-        ja_days = calendar.day_name[:7] + ['祝日']
+        ja_days = [x[:-1] for x in calendar.day_name[:7]] + ['祝日']
         locale.setlocale(locale.LC_ALL, 'en_us')
         en_days = calendar.day_name[:7] + ['Holiday']
         locale.setlocale(locale.LC_ALL, 'zh_tw')

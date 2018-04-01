@@ -28,11 +28,11 @@ class Restaurant(db.Model):
     lng = Column(Float)
 
     tags = relationship('Tag', secondary='restaurant_tag',
-                        backref='restaurants', lazy='joined')
+                        backref='restaurants')
     categories = relationship('Category', secondary='restaurant_category',
-                              backref='restaurants', lazy='joined')
+                              backref='restaurants')
     offdays = relationship('Offday', secondary='restaurant_offday',
-                           backref='restaurants', lazy='joined')
+                           backref='restaurants')
 
     def to_dict(self):
         return dict(
