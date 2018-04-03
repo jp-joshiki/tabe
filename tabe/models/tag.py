@@ -19,7 +19,7 @@ class Tag(db.Model):
 
     @staticmethod
     def update():
-        for group in _GROUPED:
+        for group in _GROUPED_TAGS:
             group_name = group['name']
             group_tag = Tag.query.get(group['id'])
             if not group_tag:
@@ -48,7 +48,7 @@ class Tag(db.Model):
 
     @staticmethod
     def grouped():
-        return _GROUPED
+        return _GROUPED_TAGS
 
 
 TABELOG_2017_TOP_100 = 1
@@ -79,7 +79,13 @@ MICHELIN_2018_2STAR = 23
 MICHELIN_2018_3STAR = 24
 MICHELIN_2018_BIG_GOURMAND = 25
 
-_GROUPED = [
+SUMMARY_TAGS = [
+    TABELOG_2017_TOP_100,
+    TABELOG_2018,
+    MICHELIN_2018,
+]
+
+_GROUPED_TAGS = [
     {
         'id': MICHELIN_2018,
         'name': I18n.complex(ja='ミシュラン 2018',

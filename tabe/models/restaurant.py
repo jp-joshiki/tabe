@@ -1,4 +1,5 @@
 from . import db
+from .tag import SUMMARY_TAGS
 from sqlalchemy import Column
 from sqlalchemy.orm import relationship
 from sqlalchemy import Integer, Float, String, Text, JSON
@@ -50,11 +51,11 @@ class Restaurant(db.Model):
             tabelog_dinner_rate=self.tabelog_dinner_rate,
             tabelog_dinner_price_min=self.tabelog_dinner_price_min,
             tabelog_dinner_price_max=self.tabelog_dinner_price_max,
-
-            categories=', '.join([x.name_ja for x in self.categories]),
-            offdays=', '.join([x.name_ja for x in self.offdays]),
-
             lat=self.lat,
             lng=self.lng,
-            tags=self.tags,
+
+            # todo: i18n
+            categories=', '.join([x.name_ja for x in self.categories]),
+            offdays=', '.join([x.name_ja for x in self.offdays]),
+            tags=[x for x in self.tags if x.id not in SUMMARY_TAGS],
         )
