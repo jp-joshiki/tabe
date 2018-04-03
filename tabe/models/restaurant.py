@@ -51,8 +51,8 @@ class Restaurant(db.Model):
             tabelog_dinner_price_min=self.tabelog_dinner_price_min,
             tabelog_dinner_price_max=self.tabelog_dinner_price_max,
 
-            categories=','.join([x.name_ja for x in self.categories]),
-            offdays=','.join([x.name_ja for x in self.offdays]),
+            categories=', '.join([x.name_ja for x in self.categories]),
+            offdays=', '.join([x.name_ja for x in self.offdays]),
 
             lat=self.lat,
             lng=self.lng,
