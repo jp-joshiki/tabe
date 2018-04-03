@@ -95,7 +95,7 @@ _GROUPED_TAGS = [
             {
                 'id': MICHELIN_2018_3STAR,
                 'name': I18n.complex(ja='三つ星',
-                                     en='2 star',
+                                     en='3 star',
                                      cn='三星'),
             },
             {

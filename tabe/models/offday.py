@@ -15,9 +15,9 @@ class RestaurantOffday(db.Model):
 
 class Offday(db.Model):
     id = Column(Integer, primary_key=True)
-    name_ja = Column(String(100))
-    name_en = Column(String(100))
-    name_cn = Column(String(100))
+    name_ja = Column(String(100), nullable=False)
+    name_en = Column(String(100), nullable=False)
+    name_cn = Column(String(100), nullable=False)
 
     @staticmethod
     def update():
