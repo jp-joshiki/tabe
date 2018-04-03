@@ -54,8 +54,7 @@ class Restaurant(db.Model):
             lat=self.lat,
             lng=self.lng,
 
-            # todo: i18n
-            categories=', '.join([x.name_ja for x in self.categories]),
-            offdays=', '.join([x.name_ja for x in self.offdays]),
+            categories=self.categories if self.categories else None,
+            offdays=self.offdays if self.offdays else None,
             tags=[x for x in self.tags if x.id not in SUMMARY_TAGS],
         )

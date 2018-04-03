@@ -2,6 +2,7 @@ from sqlalchemy import Column, ForeignKey
 from sqlalchemy import Integer, String
 
 from . import db
+from ._utils import I18n
 import calendar
 import locale
 
@@ -33,3 +34,6 @@ class Offday(db.Model):
             db.session.add(src)
             db.session.flush()
         db.session.commit()
+
+    def to_dict(self):
+        return I18n.complex(self.name_ja, self.name_en, self.name_cn)
