@@ -7,13 +7,11 @@ name = "pypi"
 
 [packages]
 
-flask = "*"
-flask-sqlalchemy = "*"
-flask-alembic = "*"
+Flask = "*"
+Flask-SQLAlchemy = "*"
+Flask-Alembic = "*"
 requests-html = "*"
 "psycopg2-binary" = "*"
-gunicorn = "*"
-"fabric3" = "*"
 
 
 [requires]

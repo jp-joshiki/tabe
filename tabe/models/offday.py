@@ -1,10 +1,9 @@
+import calendar
+import locale
 from sqlalchemy import Column, ForeignKey
 from sqlalchemy import Integer, String
 
-from . import db
-from ._utils import I18n
-import calendar
-import locale
+from ._base import db
 
 
 class RestaurantOffday(db.Model):
@@ -32,8 +31,4 @@ class Offday(db.Model):
             if not src:
                 src = Offday(name_ja=ja, name_en=en, name_cn=cn)
             db.session.add(src)
-            db.session.flush()
         db.session.commit()
-
-    def to_dict(self):
-        return I18n.complex(self.name_ja, self.name_en, self.name_cn)

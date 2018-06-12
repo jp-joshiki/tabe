@@ -2,7 +2,6 @@ import os
 
 from flask import Flask as _Flask
 from flask.json import JSONEncoder as _JSONEncoder
-from . import routes
 from .models import db
 
 
@@ -39,6 +38,5 @@ def create_basic_app():
 def create_app():
     app = Flask(__name__)
     _inject_config(app)
-    routes.init_app(app)
     db.init_app(app)
     return app
