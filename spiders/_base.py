@@ -1,4 +1,5 @@
 import logging
+import json
 import re
 from pprint import pformat
 
@@ -137,7 +138,7 @@ class BaseSpider:
             tabelog_url=url,
             tabelog_rate=rate,
             tabelog_address=address,
-            images=images,
+            images=json.dumps(images),
             lat=lat,
             lng=lng,
 

@@ -49,14 +49,10 @@ class Michelin2018Spider(BaseSpider):
             award = MICHELIN_2018_3STAR
         else:
             return
-        # name = r.find('div#restaurantName > h2 > span', first=True).text
-        # if not name:
-        #     name = r.find('div#restaurantName > h2 > em', first=True).text
         gnavi_id = url.split('/')[-2]
         tabelog_url = GNAVI_TO_TABE.get(gnavi_id)
         if tabelog_url:
             self.parse_tabelog(tabelog_url, [MICHELIN_2018, award])
-        # print(f'["{name}", {award}, "{gnavi_id}"]')
 
 
 GNAVI_TO_TABE = {

@@ -2,7 +2,7 @@ from . import db
 from .tag import SUMMARY_TAGS
 from sqlalchemy import Column
 from sqlalchemy.orm import relationship
-from sqlalchemy import Integer, Float, String, Text, JSON
+from sqlalchemy import Integer, Float, String, Text
 
 
 class Restaurant(db.Model):
@@ -10,7 +10,7 @@ class Restaurant(db.Model):
     name = Column(String(100))
     url = Column(String(300))
     tel = Column(String(100))
-    images = Column(JSON)
+    images = Column(String)
 
     tabelog_id = Column(String(100), unique=True)
     tabelog_url = Column(String(300))

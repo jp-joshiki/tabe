@@ -113,7 +113,7 @@ _GROUPED_TAGS = [
             {
                 'id': MICHELIN_2018_BIG_GOURMAND,
                 'name': I18n.complex(ja='ビブグルマン',
-                                     en='Big Gourmand',
+                                     en='Bib Gourmand',
                                      cn='超值套餐'),
             },
         ],

@@ -1,18 +1,8 @@
 # Dev env
 
-Requirents: Docker, Python3.6, Pipenv
-
-create `local_settings.py`, paste in
-
-```python
-DEBUG = True
-
-SQLALCHEMY_DATABASE_URI = 'postgresql://user:passwd@localhost:5432/tabe'
-```
-
+Requirents: Docker, Python3.7, Pipenv
 
 ```shell
-$ docker-compose up
 $ pipenv install
 $ pipenv shell
 $ python manage.py db upgrade
