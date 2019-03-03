@@ -4,9 +4,7 @@ Requirents: Python3.7, Pipenv
 
 ```shell
 $ pipenv install
-$ pipenv shell
-$ python manage.py db upgrade
-$ python manage.py update_db
+$ pipenv run python manage.py db upgrade
 ```
 
 # Run spiders
