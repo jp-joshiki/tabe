@@ -5,7 +5,7 @@ from pprint import pformat
 
 from requests_html import HTMLSession
 from tabe.models import db
-from tabe.models import Restaurant, Tag, Offday, Category
+from tabe.models import Restaurant
 
 USER_AGENT = (
     'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:57.0) '

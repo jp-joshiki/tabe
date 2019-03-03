@@ -20,7 +20,7 @@ def res_sync():
     import json
     from tabe.models import Restaurant, db
 
-    entries = ['michelin_2018', 'tabelog_2017_top_100', 'tabelog_2018']
+    entries = ['michelin_2018', 'tabelog_2017_top_100', 'tabelog_award_2018']
     for entry in entries:
         path = f'./data/{entry}.json'
         with open(path, 'r') as f:
