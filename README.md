@@ -1,6 +1,6 @@
 # Dev env
 
-Requirents: Docker, Python3.7, Pipenv
+Requirents: Python3.7, Pipenv
 
 ```shell
 $ pipenv install

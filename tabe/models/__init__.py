@@ -1,5 +1,4 @@
 from ._base import db
 from .restaurant import Restaurant
+from .tabelog_restaurant import TabelogRestaurant
 from .tag import Tag, RestaurantTag
-from .category import Category, RestaurantCategory
-from .offday import Offday, RestaurantOffday
