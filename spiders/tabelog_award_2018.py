@@ -1,13 +1,13 @@
 import json
 
-from tabe.models.tag import (
-    TABELOG_2018_GOLD,
-    TABELOG_2018_SILVER,
-    TABELOG_2018_BRONZE,
-    TABELOG_2018_BEST_NEW_ENTRY,
-    TABELOG_2018_BEST_HOSPITALITY,
-    TABELOG_2018_BEST_REGIONAL,
-    TABELOG_2018_BEST_CHEFS_CHOICE,
+from tabe.consts import (
+    TABELOG_AWARD_2018_GOLD,
+    TABELOG_AWARD_2018_SILVER,
+    TABELOG_AWARD_2018_BRONZE,
+    TABELOG_AWARD_2018_BEST_NEW_ENTRY,
+    TABELOG_AWARD_2018_BEST_HOSPITALITY,
+    TABELOG_AWARD_2018_BEST_REGIONAL,
+    TABELOG_AWARD_2018_CHEFS_CHOICE,
 )
 from ._base import BaseSpider
 
@@ -15,12 +15,12 @@ BASE_URL = 'https://award.tabelog.com/2018/restaurants'
 
 ENTRIES = [
     (['?utf8=✓&main_prizes%5B%5D=gold&genre_id=0&prefecture_id=0'],
-     TABELOG_2018_GOLD),
+     TABELOG_AWARD_2018_GOLD),
     ([
          '?utf8=✓&main_prizes%5B%5D=silver&genre_id=0&prefecture_id=0',
          '?genre_id=0&main_prizes%5B%5D=silver&page=2&prefecture_id=0',
      ],
-     TABELOG_2018_SILVER),
+     TABELOG_AWARD_2018_SILVER),
     ([
          '?utf8=✓&main_prizes%5B%5D=bronze&genre_id=0&prefecture_id=0',
          '?genre_id=0&main_prizes%5B%5D=bronze&page=2&prefecture_id=0',
@@ -28,15 +28,15 @@ ENTRIES = [
          '?genre_id=0&main_prizes%5B%5D=bronze&page=4&prefecture_id=0',
          '?genre_id=0&main_prizes%5B%5D=bronze&page=5&prefecture_id=0',
      ],
-     TABELOG_2018_BRONZE),
+     TABELOG_AWARD_2018_BRONZE),
     (['?utf8=✓&sub_prizes[]=new_entry_prize&genre_id=0&prefecture_id=0'],
-     TABELOG_2018_BEST_NEW_ENTRY),
+     TABELOG_AWARD_2018_BEST_NEW_ENTRY),
     (['?utf8=✓&sub_prizes[]=hospitality_prize&genre_id=0&prefecture_id=0'],
-     TABELOG_2018_BEST_HOSPITALITY),
+     TABELOG_AWARD_2018_BEST_HOSPITALITY),
     (['?utf8=✓&sub_prizes[]=region_prize&genre_id=0&prefecture_id=0'],
-     TABELOG_2018_BEST_REGIONAL),
+     TABELOG_AWARD_2018_BEST_REGIONAL),
     (['?utf8=✓&sub_prizes[]=chefs_choice_prize&genre_id=0&prefecture_id=0'],
-     TABELOG_2018_BEST_CHEFS_CHOICE)
+     TABELOG_AWARD_2018_CHEFS_CHOICE)
 ]
 
 

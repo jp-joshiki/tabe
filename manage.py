@@ -22,8 +22,10 @@ def res_sync():
 
     entries = [
         'michelin_2018',
-        'tabelog_2017_top_100',
-        'tabelog_award_2018'
+        'tabelog_100_top_2017',
+        'tabelog_award_2017',
+        'tabelog_award_2018',
+        'tabelog_award_2019',
     ]
     for entry in entries:
         path = f'./data/{entry}.json'
