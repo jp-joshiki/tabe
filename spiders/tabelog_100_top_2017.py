@@ -1,5 +1,6 @@
-from ._base import BaseSpider
-from tabe.models.tag import (
+import json
+
+from tabe.consts import (
     TABELOG_2017_TOP_100_HAMBURGER,
     TABELOG_2017_TOP_100_PIZZA,
     TABELOG_2017_TOP_100_PORK_CUTLET,
@@ -7,15 +8,14 @@ from tabe.models.tag import (
     TABELOG_2017_TOP_100_SOBA,
     TABELOG_2017_TOP_100_UDON,
     TABELOG_2017_TOP_100_RAMEN_TOKYO,
-    TABELOG_2017_TOP_100_RAMEN_EASE,
+    TABELOG_2017_TOP_100_RAMEN_EAST,
     TABELOG_2017_TOP_100_RAMEN_WEST,
     TABELOG_2017_TOP_100_SWEETS,
     TABELOG_2017_TOP_100_PAN,
 )
-
+from ._base import BaseSpider
 
 BASE_URL = 'https://award.tabelog.com/hyakumeiten/2017'
-
 
 ENTRIES = [
     ('hamburger/japan', TABELOG_2017_TOP_100_HAMBURGER),
@@ -25,7 +25,7 @@ ENTRIES = [
     ('soba/japan', TABELOG_2017_TOP_100_SOBA),
     ('udon/japan', TABELOG_2017_TOP_100_UDON),
     ('ramen/tokyo', TABELOG_2017_TOP_100_RAMEN_TOKYO),
-    ('ramen/east', TABELOG_2017_TOP_100_RAMEN_EASE),
+    ('ramen/east', TABELOG_2017_TOP_100_RAMEN_EAST),
     ('ramen/west', TABELOG_2017_TOP_100_RAMEN_WEST),
     ('sweets/japan', TABELOG_2017_TOP_100_SWEETS),
     ('pan/japan', TABELOG_2017_TOP_100_PAN)
@@ -38,7 +38,10 @@ class Tabelog100Top2017Spider(BaseSpider):
     def run(self):
         for entry in ENTRIES:
             self.parse_list(entry[0], entry[1])
-        print(self.data)
+        with open('./data/tabelog_100_top_2017.json', 'w') as f:
+            data = list(self.data.values())
+            data = sorted(data, key=lambda x: x['tabelog_url'])
+            json.dump(data, f, indent=4)
 
     def parse_list(self, path, tag):
         url = BASE_URL + '/' + path
