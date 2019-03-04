@@ -1,13 +1,13 @@
 import json
 from sqlalchemy import Column
-from sqlalchemy import Integer, Text, String
+from sqlalchemy import Integer, Text
 
 from . import db
 
 
 class Restaurant(db.Model):
     id = Column(Integer, primary_key=True, autoincrement=True)
-    tabelog_url = Column(String(300), unique=True, nullable=False)
+    tabelog_restaurant_id = Column(Integer, unique=True, nullable=False)
 
     tags = Column(Text)
 

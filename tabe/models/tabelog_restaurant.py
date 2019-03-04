@@ -5,8 +5,8 @@ from . import db
 
 
 class TabelogRestaurant(db.Model):
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    source_url = Column(String(300), unique=True, nullable=False)
+    id = Column(Integer, primary_key=True)
+    source_url = Column(String(300), nullable=False)
 
     url = Column(String(300))
     rate = Column(Float)
