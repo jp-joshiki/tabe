@@ -33,21 +33,30 @@ ENTRIES = [
 ]
 
 
-class Tabelog2017Top100Spider(BaseSpider):
+class Tabelog100Top2017Spider(BaseSpider):
+    data = {}
+
     def run(self):
         for entry in ENTRIES:
-            self.parse_list(entry[0], [TABELOG_2017_TOP_100, entry[1]])
+            self.parse_list(entry[0], entry[1])
+        print(self.data)
 
-    def parse_list(self, path, tags):
+    def parse_list(self, path, tag):
         url = BASE_URL + '/' + path
         r = self.fetch(url)
         items = r.html.find('ul.rstlist', first=True)
         items = items.find('li.rstlist__item')
         for item in items:
-            self.parse_item(item, tags)
+            self.parse_item(item, tag)
 
-    def parse_item(self, item, tags):
+    def parse_item(self, item, tag):
         a = item.find('a.rstlist__target', first=True)
         url = a.attrs['href']
         url = url.split('?')[0]
-        self.parse_tabelog(url, tags)
+        prev = self.data.get(url)
+        if prev:
+            prev['tags'] = prev['tags'] + [tag]
+            self.data[url] = prev
+        else:
+            self.data[url] = dict(tabelog_url=url, tags=[tag])
+        print(self.data[url])

@@ -2,8 +2,8 @@ import click
 import logging
 from tabe import create_basic_app
 from flask.cli import FlaskGroup
-from .tabelog_2017_top_100 import Tabelog2017Top100Spider
-from .tabelog_2018 import Tabelog2018Spider
+from .tabelog_100_top_2017 import Tabelog100Top2017Spider
+from .tabelog_award_2018 import TabelogAward2018Spider
 from .michelin_2018 import Michelin2018Spider
 
 
@@ -19,18 +19,18 @@ def cli():
 
 
 @cli.command()
-def tabelog_2017_top_100():
-    Tabelog2017Top100Spider().run()
-
-
-@cli.command()
-def tabelog_2018():
-    Tabelog2018Spider().run()
-
-
-@cli.command()
-def michelin_2018():
-    Michelin2018Spider().run()
+@click.argument('spider')
+def run(spider):
+    mapping = dict(
+        tabelog_100_top_2017=Tabelog100Top2017Spider,
+        tabelog_award_2018=TabelogAward2018Spider,
+        michelin_2018=Michelin2018Spider,
+    )
+    spider = mapping.get(spider)
+    if spider:
+        spider().run()
+    else:
+        print('Spider not exist')
 
 
 if __name__ == '__main__':

@@ -40,7 +40,7 @@ ENTRIES = [
 ]
 
 
-class Tabelog2018Spider(BaseSpider):
+class TabelogAward2018Spider(BaseSpider):
     data = {}
 
     def run(self):
