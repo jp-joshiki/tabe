@@ -1,6 +1,5 @@
 from ._base import BaseSpider
 from tabe.models.tag import (
-    TABELOG_2017_TOP_100,
     TABELOG_2017_TOP_100_HAMBURGER,
     TABELOG_2017_TOP_100_PIZZA,
     TABELOG_2017_TOP_100_PORK_CUTLET,

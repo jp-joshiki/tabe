@@ -7,10 +7,7 @@ from requests_html import HTMLSession
 from tabe.models import db
 from tabe.models import Restaurant
 
-USER_AGENT = (
-    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:57.0) '
-    'Gecko/20100101 Firefox/57.0'
-)
+USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:57.0) Gecko/20100101 Firefox/57.0'
 
 
 class BaseSpider:

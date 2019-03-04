@@ -171,7 +171,7 @@ GNAVI_TO_TABE = {
     '0115021501': 'https://tabelog.com/tokyo/A1316/A131601/13045529/',
     '0115021502': 'https://tabelog.com/tokyo/A1301/A130101/13002488/',
     '0115021601': 'https://tabelog.com/tokyo/A1326/A132602/13195328/',
-    '0115021701': 'https://tabelog.com/tokyo/A1317/A131708/13015521',
+    '0115021701': 'https://tabelog.com/tokyo/A1317/A131708/13015521/',
     '0115021702': 'https://tabelog.com/tokyo/A1301/A130101/13001043/',
     '0115021801': 'https://tabelog.com/tokyo/A1302/A130202/13002230/',
     '0115021902': 'https://tabelog.com/tokyo/A1309/A130904/13097060/',
