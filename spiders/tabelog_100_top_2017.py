@@ -1,5 +1,3 @@
-import json
-
 from tabe.consts import (
     TABELOG_2017_TOP_100_HAMBURGER,
     TABELOG_2017_TOP_100_PIZZA,
@@ -34,14 +32,12 @@ ENTRIES = [
 
 class Tabelog100Top2017Spider(BaseSpider):
     data = {}
+    target = './data/tabelog_100_top_2017.json'
 
     def run(self):
         for entry in ENTRIES:
             self.parse_list(entry[0], entry[1])
-        with open('./data/tabelog_100_top_2017.json', 'w') as f:
-            data = list(self.data.values())
-            data = sorted(data, key=lambda x: x['tabelog_url'])
-            json.dump(data, f, indent=4)
+        self.store()
 
     def parse_list(self, path, tag):
         url = BASE_URL + '/' + path
@@ -55,10 +51,4 @@ class Tabelog100Top2017Spider(BaseSpider):
         a = item.find('a.rstlist__target', first=True)
         url = a.attrs['href']
         url = url.split('?')[0]
-        prev = self.data.get(url)
-        if prev:
-            prev['tags'] = prev['tags'] + [tag]
-            self.data[url] = prev
-        else:
-            self.data[url] = dict(tabelog_url=url, tags=[tag])
-        print(self.data[url])
+        self.add(url, tag)
