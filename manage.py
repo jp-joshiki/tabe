@@ -23,6 +23,7 @@ def res_sync():
     entries = [
         'michelin_2018',
         'tabelog_100_top_2017',
+        'tabelog_100_top_2018',
         'tabelog_award_2017',
         'tabelog_award_2018',
         'tabelog_award_2019',
