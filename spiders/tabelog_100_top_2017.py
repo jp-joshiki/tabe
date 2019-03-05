@@ -31,7 +31,6 @@ ENTRIES = [
 
 
 class Tabelog100Top2017Spider(BaseSpider):
-    data = {}
     target = './data/tabelog_100_top_2017.json'
 
     def run(self):

@@ -37,7 +37,6 @@ ENTRIES = [
 
 
 class TabelogAward2019Spider(BaseSpider):
-    data = {}
     target = './data/tabelog_award_2019.json'
 
     def run(self):
