@@ -8,6 +8,7 @@ class TabelogRestaurant(db.Model):
     id = Column(Integer, primary_key=True)
     source_url = Column(String(300), nullable=False)
 
+    name = Column(String(300))
     url = Column(String(300))
     rate = Column(Float)
     address = Column(Text)

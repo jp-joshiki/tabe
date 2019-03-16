@@ -29,6 +29,7 @@ def upgrade():
         'tabelog_restaurant',
         sa.Column('id', sa.Integer(), nullable=False),
         sa.Column('source_url', sa.String(length=300), nullable=False),
+        sa.Column('name', sa.String(length=300), nullable=True),
         sa.Column('url', sa.String(length=300), nullable=True),
         sa.Column('rate', sa.Float(), nullable=True),
         sa.Column('address', sa.Text(), nullable=True),
